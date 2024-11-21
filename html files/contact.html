@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricketersBio Contact Page</title>
+    <style>
+        body {
+            background-size: cover;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .navbar a {
+            color: rgb(9, 9, 9);
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 60px;
+            color: black;
+        }
+
+        main {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #8fb4b8;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 5%;
+        }
+
+        .form-container {
+            background: rgba(59, 54, 61, 0.6); 
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            color: #fff;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #9257a0;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #7a4e80;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+            }
+        }
+
+        /* Validation message styling */
+        .validation-message {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body background="https://wallpapers.com/images/high/cricket-painting-4k-ywatxbz5s46gez69.webp">
+    <h1>CricketersBio</h1>
+    <nav class="navbar">
+        <ul>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </nav>
+    <main>
+        <h2>This is the Contact Page</h2>
+        <h3>Any Queries? Call 1800-444-100</h3>
+    </main>
+
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <form action="#" method="post" onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td>
+                        <input type="text" id="name" name="name" required oninput="validateName()">
+                        <div id="nameMessage" class="validation-message"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td>
+                        <input type="email" id="email" name="email" required oninput="validateEmail()">
+                        <div id="emailMessage" class="validation-message"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone:</label></td>
+                    <td>
+                        <input type="tel" id="phone" name="phone" required oninput="validatePhone()">
+                        <div id="phoneMessage" class="validation-message"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="message">Message:</label></td>
+                    <td><textarea id="message" name="message" rows="4" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cricket Live Updates. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateName() {
+            const name = document.getElementById("name").value;
+            const nameMessage = document.getElementById("nameMessage");
+
+            if (name.length >= 5) {
+                document.getElementById("name").style.borderColor = "green";
+                nameMessage.textContent = "Name looks good";
+                nameMessage.style.color = "green";
+            } else {
+                document.getElementById("name").style.borderColor = "red";
+                nameMessage.textContent = "Name should be at least 5 characters long";
+                nameMessage.style.color = "red";
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email").value;
+            const emailMessage = document.getElementById("emailMessage");
+
+            if (email.endsWith("@gmail.com")) {
+                document.getElementById("email").style.borderColor = "green";
+                emailMessage.textContent = "Email looks good";
+                emailMessage.style.color = "green";
+            } else {
+                document.getElementById("email").style.borderColor = "red";
+                emailMessage.textContent = "Email must end with '@gmail.com'";
+                emailMessage.style.color = "red";
+            }
+        }
+
+        function validatePhone() {
+            const phone = document.getElementById("phone").value;
+            const phoneMessage = document.getElementById("phoneMessage");
+
+            if (phone.length === 10 && /^\d+$/.test(phone)) {
+                document.getElementById("phone").style.borderColor = "green";
+                phoneMessage.textContent = "Phone number looks good";
+                phoneMessage.style.color = "green";
+            } else {
+                document.getElementById("phone").style.borderColor = "red";
+                phoneMessage.textContent = "Phone number must be exactly 10 digits";
+                phoneMessage.style.color = "red";
+            }
+        }
+
+        function validateForm() {
+            validateName();
+            validateEmail();
+            validatePhone();
+
+            const nameValid = document.getElementById("name").style.borderColor === "green";
+            const emailValid = document.getElementById("email").style.borderColor === "green";
+            const phoneValid = document.getElementById("phone").style.borderColor === "green";
+
+            return nameValid && emailValid && phoneValid;
+        }
+    </script>
+</body>
+</html>
